@@ -1,0 +1,74 @@
+# Project information
+site_name: Cloudbox K8s
+site_description: 'Cloudbox in Kubernetes...'
+
+# Repository
+repo_name: 'darth-veitcher/cloudbox-k8s'
+repo_url: 'https://github.com/darth-veitcher/cloudbox-k8s'
+
+# Nav
+nav:
+  - 'Introduction': 'index.md'
+
+# GitHub Pages
+docs_dir: docs_src
+site_dir: docs
+
+# Use the Material theme config
+# https://squidfunk.github.io/mkdocs-material/getting-started/
+theme:
+  name: 'material'
+  custom_dir: 'docs_src/theme'
+  logo:
+    icon: 'vpn_lock'
+  palette:
+    primary: 'blue'  # indigo
+    accent: 'teal'  # indigo
+  font:
+    text: 'Abel'  # Ubuntu
+    code: 'Hackman'  # Ubuntu Mono
+
+# Customisation
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/darth-veitcher'
+
+# Extensions
+# https://squidfunk.github.io/mkdocs-material/extensions/pymdown/
+markdown_extensions:
+  - toc:
+      baselevel: 3
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+plugins:
+  - search
+  - minify:
+      minify_html: true
+  - drawio-exporter:
+      # Diagrams are cached to speed up site generation. The default path is
+      # drawio-exporter, relative to the documentation directory.
+      cache_dir: 'drawio-exporter'
+      # Path to draw.io or draw.io.exe. Will be determined from the PATH
+      # environment variable if not specified.
+      drawio_executable: /Applications/draw.io.app/Contents/MacOS/draw.io
+      # Output format (see draw.io --help | grep format)
+      format: svg
+      # Glob pattern for matching source files
+      sources: '*.drawio'
